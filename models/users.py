@@ -11,7 +11,7 @@ import json
 users = []
 
 
-user = {'name': 'Rene Haubitzer',
+user = {'name': 'Florian Krempl',
         'allergies': [],
         'veggie': False,
         'vegan' : False,

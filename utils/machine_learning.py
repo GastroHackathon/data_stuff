@@ -36,14 +36,6 @@ def predict_choice(dishes): # user
     data_all_dishes = data_all_dishes.sort_values('y', ascending=False)
     return data_all_dishes.iloc[:3]
 
-
-
-model = pickle.load(open('data/KNeighborsClassifier_latest' , 'rb'))#+user['username']
-data_all_dishes = preprocess(dishes)
-pred_data = data_all_dishes.drop('name', axis = 1)        
-y_hat = model.predict_proba(pred_data)
-data_all_dishes['y'] = y_hat[1]
-data_all_dishes = data_all_dishes.sort_values('y', ascending=False)
     
 # creat training data
 with open('data/dishes_full.json') as f:
