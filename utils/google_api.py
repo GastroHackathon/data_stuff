@@ -48,6 +48,7 @@ with open('data/restaurants.json') as f:
 
 for r in restaurants:
     print(r['name'],
-          r['vicinity'],
+          #r['vicinity'],
+          r['place_id'],
           #r['opening_hours'],
           r['rating'])

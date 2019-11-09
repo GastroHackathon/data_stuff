@@ -2,9 +2,9 @@
 import json 
 
 def create_dish(name, veggie = False, vegan = False, fish = False,
-                beef = True, pork = False, chicken = False, 
+                beef = False, pork = False, chicken = False, healthy = False,
             allergenes = [], origin = 'Austrian',
-            available_in = []):
+            available_in = {}):
     
     dish = {
         'name': name,
@@ -14,16 +14,34 @@ def create_dish(name, veggie = False, vegan = False, fish = False,
         'pork': pork,
         'chicken': chicken, 
         'fish': fish,
+        'healthy': healthy,
         'allergens': allergenes,
         'origin': origin,
         'available_in': available_in
         }
     
-    with open('data/restaurants.json', 'w') as f:
-    json.dump(restaurants, f)
+    #with open('data/dishes.json') as f:
+    #dishes = json.load(f)
+    
+    #dishes['dishes'].append(dish)
+    dishes = []
+    dishes.append(dish)
+    with open('data/dishes.json', 'w') as f:
+        json.dump(dishes, f)
     
     return dish
-    
+
+
+create_dish('Ausgelöste Flußkrebserl mit Dill und Avocados auf Häuptlsalat',
+            fish = True,
+            healthy = True,
+            available_in = {'ChIJ44eRDa2adkcRBpmhhcXRonA': {'price': 30}},
+            allergenes = ['B', 'D', 'R']
+            )
+
+with open('data/dishes.json') as f:
+    dishes = json.load(f)
+
 
 dish = {
         'name': 'superawesomedish',
